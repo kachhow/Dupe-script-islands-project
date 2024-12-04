@@ -1,0 +1,21 @@
+
+How this script works:
+
+    PlayerAdded: This event triggers when a player joins the game.
+    CharacterAdded: This event fires when the player’s character is added to the game.
+    doubleItem function: This function checks if the player has the item (by name) in their inventory. If found, it clones the item and adds the clone to the player's Backpack (effectively doubling it).
+    Touch event: The script listens for when the player touches a specific part in the game (ItemPart). When touched, it calls the doubleItem function to duplicate the item in the player's backpack.
+
+Customizing the Script:
+
+    Change ItemNameHere: Replace "ItemNameHere" with the actual name of the item you want to double (e.g., "Wood", "Iron", etc.).
+    Trigger Part: Make sure there’s an actual part in the workspace named ItemPart, or change "ItemPart" to the name of the part you want to use as the trigger for doubling the item.
+    Item Type: This script assumes the item is an object in the player's Backpack (inventory). If the item is something else, like a Tool or Special Item, ensure it's in the correct location in the player's character.
+
+How to use:
+
+    Place this script inside ServerScriptService in Roblox Studio.
+    Ensure you have a part in your game (like a button or object) that will trigger the item doubling when touched. The part should be named "ItemPart" (or change the name in the script).
+    When the player touches the part, the item will be doubled in their inventory.
+
+Let me know if you need further adjustments
