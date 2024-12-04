@@ -1,0 +1,36 @@
+-- Script to double an item in the player's inventory
+-- Place this in a Script under ServerScriptService
+
+game.Players.PlayerAdded:Connect(function(player)
+    -- When a player joins, listen for item collection or interaction
+    player.CharacterAdded:Connect(function(character)
+        
+        -- Replace this with the name of the item you want to double
+        local itemToDouble = "ItemNameHere"  -- Change this to your specific item name
+
+        -- Function to double the item in the player's backpack
+        local function doubleItem(itemName)
+            -- Check if the player has the item in their backpack
+            local inventory = player.Backpack
+            for _, item in pairs(inventory:GetChildren()) do
+                if item.Name == itemName then
+                    -- If item is found, clone it and give it to the player
+                    local clonedItem = item:Clone()
+                    clonedItem.Parent = inventory
+                    print(itemName .. " has been doubled!")
+                    break
+                end
+            end
+        end
+
+        -- Trigger the doubling function when the player touches a part
+        -- This part acts as a trigger to double the item (you can replace this with other logic)
+        local part = game.Workspace:WaitForChild("ItemPart") -- Change 'ItemPart' to your trigger part's name
+        part.Touched:Connect(function(hit)
+            if hit.Parent == character then
+                doubleItem(itemToDouble)
+            end
+        end)
+
+    end)
+end)
